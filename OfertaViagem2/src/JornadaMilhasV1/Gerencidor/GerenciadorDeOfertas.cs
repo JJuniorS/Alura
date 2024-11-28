@@ -81,4 +81,11 @@ public class GerenciadorDeOfertas
             Console.WriteLine(oferta);
         }
     }
+
+    public OfertaViagem? RecuperaMaiorDesconto(Func<OfertaViagem, bool> filtro) => 
+        ofertaViagem.Where(filtro)
+        .OrderBy(_ => _.Preco)
+        .FirstOrDefault();
+
+    //public OfertaViagem? RecuperaOfertaSP(Func<OfertaViagem, bool> filtro) => ofertaViagem.Where(_ => _.Rota.Destino == filtro.Target.).FirstOrDefault();
 }
